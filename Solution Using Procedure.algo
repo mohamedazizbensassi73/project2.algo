@@ -1,0 +1,24 @@
+PROCEDURE dot_product(v1: ARRAY OF INTEGER, v2: ARRAY OF INTEGER, LENGTH: INTEGER, VAR ps: INTEGER)
+VAR
+    i : INTEGER
+BEGIN
+    ps := 0
+    FOR i := 0 TO LENGTH - 1 DO
+        ps := ps + (v1[i] * v2[i])
+    END_FOR
+END
+
+ALGORITHM check_orthogonality
+VAR
+    v1 : ARRAY[3] OF INTEGER = [1, 2, 3]
+    v2 : ARRAY[3] OF INTEGER = [-2, 4, -1]
+    ps : INTEGER
+    n : INTEGER = 3
+BEGIN
+    dot_product(v1, v2, n, ps)
+    IF ps = 0 THEN
+        Write("The vectors are orthogonal.")
+    ELSE
+        Write("The vectors are not orthogonal.")
+    END_IF
+END
